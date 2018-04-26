@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'com.aaron.gradle.bintray-release'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        multiDexEnabled rootProject.ext.multiDexEnabled
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    lintOptions {
+        abortOnError rootProject.ext.abortOnError
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+// cmd
+// ./gradlew --stacktrace bintrayUpload -PbintrayUser=wlfcolin -PbintrayKey=XXXXXXXXXXXXXX -PdryRun=false
+publish {
+    userOrg = 'wlfcolin'
+    groupId = 'me.andy5'
+    artifactId = 'ActivityResult'
+    publishVersion = "$versionName"
+    // archives file('build/outputs/test.jar')
+    desc = 'a easy lib for android to start a activity for activity result and get the results by activity result listener.'
+    website = 'https://github.com/wlfcolin/ActivityResult'
+}
+
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+}

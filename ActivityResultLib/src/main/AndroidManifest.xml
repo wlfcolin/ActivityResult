@@ -1,0 +1,10 @@
+<manifest package="me.andy5.activity_result_listener"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity
+            android:name=".WrapActivity"
+            android:theme="@style/Theme.Andy5.ActivityResult.Transparent"/>
+    </application>
+
+</manifest>

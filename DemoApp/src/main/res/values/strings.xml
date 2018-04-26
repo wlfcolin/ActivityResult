@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ActivityResultDemo</string>
+
+    <!-- Strings for demo -->
+    <string name="prompt_result">please input some data</string>
+    <string name="action_conform">return with data</string>
+</resources>
